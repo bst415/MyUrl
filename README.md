@@ -46,3 +46,7 @@ This is a homepage for authenticated users.
 
 ![image8](git-images/Dashboard.png)
 
+
+## Author
+
+Shiva Teja ([@bst-415](https://github.com/bst-415))
