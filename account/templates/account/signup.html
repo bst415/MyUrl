@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Signup | MyUrl{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="form-container">
+    <h1 style="text-align:center">Signup</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} id="{{ forloop.counter }}" class="{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+            {{ message }}
+            <span class="close" onclick="getElementById('{{ forloop.counter }}').style.display = 'none';" >....</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="{% url 'account:signup' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Name<span class="form-required"  title="This field is required.">* :</span></label><br><br>
+        <input type="text" name="username" class="form" placeholder="Name (Required)" required ><br><br>
+        <label for="email">E-mail<span class="form-required"  title="This field is required.">* :</span></label><br><br>
+        <input type="email" name="email" class="form" placeholder="Enter Your E-Mail (Required)" required ><br><br>
+        <label for="password">Password<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <input type="password" name="password" class="form" placeholder="Create Password (Required)" required><br><br>
+        <label for="password2">Confirm Password<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <input type="password" name="password2" class="form" placeholder="Confirm Password (Required)" required><br><br>
+        <input type="submit">
+    </form><br>
+    <a class="loginredirect" href="{% url 'account:login' %}">Already have an account ? Login</a>
+    <br><br><br><br>
+</div>
+{% endblock %}

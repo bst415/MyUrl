@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br><br>
+<div class="center">
+    <h1 style="font-size: 100px;">{% if user.is_authenticated %}Custom Url{% else %}Shorten Url{% endif %}</h1>
+    <br>
+    <div class="url-form-container">
+        <form action="{% url 'dashboard:generate' %}" method="POST" class="form">
+            {% csrf_token %}
+            <input type="url" name="original" placeholder="Paste your url here. . ." autocomplete="off" required>
+            <select name="duration" id="duration">
+                <option value="1 Hour">1 Hour</option>
+                <option value="1 Day">1 Day</option>
+                <option value="1 Week">1 Week</option>
+                <option value="1 Month">1 Month</option>
+                {% if user.is_authenticated %}
+                <option value="6 Months">6 Months</option>
+                <option value="1 Year">1 Year</option>
+                <option value="No Expiry">No Expiry</option>
+                {% endif %}
+            </select><br>
+            {% if user.is_authenticated %}
+            <br>
+            <label for="customchar" style="color: #ffffff;" > https://myurl.page/ </label>
+            <input type="text" class="custom-url-form" name="short_char" maxlength="15" placeholder="Enter custom URL (Optional)">
+            <input type="text" class="custom-url-form" name="title" placeholder="Title (Optional)">
+            {% endif %}
+            <br><br>
+            <input type="submit" value="Generate">
+        </form>
+        <br>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} id="{{ forloop.counter }}" class="{{ message.tags }}" {% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+                {{ message }}
+                <span class="close" onclick="getElementById('{{ forloop.counter }}').style.display = 'none';">....</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </div>
+</div>
+{% endblock %}

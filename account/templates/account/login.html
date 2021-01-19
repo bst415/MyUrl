@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login | MyUrl{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="form-container">
+    <h1 style="text-align:center">Login</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} id="{{ forloop.counter }}" class="{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+            {{ message }}
+            <span class="close" onclick="getElementById('{{ forloop.counter }}').style.display = 'none';" >....</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="{% url 'account:login' %}" method="POST">
+        {% csrf_token %}
+        <label for="email">E-mail<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <input type="email" name="email" class="form" placeholder="Enter Your E-Mail (Required)" required><br><br>
+        <label for="password">Password<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <input type="password" name="password" class="form" placeholder="Enter Your Password (Required)" required><br><br>
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        <input type="submit">
+    </form><br>
+    <a class="loginredirect" href="{% url 'account:signup' %}">New Here ? Signup</a>
+</div>
+{% endblock %}

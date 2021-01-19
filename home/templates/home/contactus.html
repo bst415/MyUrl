@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us | MyUrl{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="form-container">
+    <h1 style="text-align:center">Contact Us</h1>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label for="name">Name<span class="form-required"  title="This field is required.">* :</span></label><br><br>
+        <input type="text" name="name" class="form" placeholder="Enter Your Name (Required)" required ><br><br>
+        <label for="email">E-mail<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <input type="email" name="email" class="form" placeholder="Enter Your E-Mail (Required)" required><br><br>
+        <label for="subject">Subject:</label><br><br>
+        <input type="text" name="subject" class="form" placeholder="Subject (Optional)"><br><br>
+        <label for="message">Message<span class="form-required" title="This field is required.">* :</span></label><br><br>
+        <textarea name="message" id="message" cols="30" rows="5" class="form" placeholder="Enter Your Message (Required)" required></textarea><br><br>
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
