@@ -9,7 +9,7 @@ This is a common homepage for not authenticated users.
 ### User Home Page
 This is a homepage for authenticated users.
 
-![image2](git-images/User Home.png)
+![image2](git-images/User-Home.png)
 
 ### Login
 1. Simply login with your email and password.
@@ -42,7 +42,7 @@ This is a homepage for authenticated users.
 ### Dashboard
 1. Login is required to access dashboard.
 2. You can view Orginal Url, Short Url, Visits, Created and Expiry date.
-3. you can also delelte unwanted urls.
+3. you can also delete unwanted urls.
 
-![image5](git-images/Dashboard.png)
+![image8](git-images/Dashboard.png)
 
