@@ -2,7 +2,7 @@
 MyUrl is a web application with a user-friendly interface for shortening, managing and tracking lengthy urls.
 
 ### Home Page
-This is a common homepage for not authenticated users.
+This is a common homepage for non authenticated users.
 
 ![image1](git-images/Home.png)
 
@@ -11,16 +11,16 @@ This is a homepage for authenticated users.
 
 ![image2](git-images/User-Home.png)
 
-### Login
-1. Simply login with your email and password.
-
-![image3](git-images/Login.png)
-
 ### Signup
 1. Signup for account to access the dashboard.
 2. Enter name, email and password to signup.
 
 ![image4](git-images/Signup.png)
+
+### Login
+1. Simply login with your email and password.
+
+![image3](git-images/Login.png)
 
 ### Working
 
