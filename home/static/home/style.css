@@ -2,6 +2,7 @@
 
 * {
     font-family: Aclonica;
+    font-size: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -45,6 +46,12 @@ body {
     max-width: 90%;
     margin: auto;
     position: relative;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 section {
@@ -289,6 +296,8 @@ table, th ,td {
   border: 1px solid #ffffff;
   text-align: center;
   padding: 4px;
+  table-layout: fixed;
+  width: 100%;  
 }
 
 
